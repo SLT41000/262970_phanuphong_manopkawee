@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import type { ShopItem } from './util/interface/shopItem'
 import shoppingList from "./util/shopItemList.json"
+import Cart from './component/cart'
 
 function App() {
   const itemCategories = [...new Set(shoppingList.map((item: ShopItem) => item.category))]
@@ -59,9 +60,9 @@ function App() {
             >
               <div className="flex flex-col h-full justify-between gap-3">
                 <div>
-                  <span className="text-xs uppercase tracking-wide text-emerald-400/80 font-semibold">
+                  {/* <span className="text-xs uppercase tracking-wide text-emerald-400/80 font-semibold">
                     {item.category}
-                  </span>
+                  </span> */}
                   <p className="text-base font-semibold text-white mt-1 leading-snug">
                     {item.name}
                   </p>
@@ -82,12 +83,7 @@ function App() {
       </div>
 
       {/* Cart / side panel */}
-      <div className="bg-slate-900 rounded-3xl p-6 border border-slate-800 flex flex-col">
-        <h2 className="text-lg font-bold text-white mb-4">Cart</h2>
-        <div className="flex-1 flex items-center justify-center text-slate-500 text-sm text-center">
-          No items yet
-        </div>
-      </div>
+      <Cart />
 
     </div>
   )
